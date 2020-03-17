@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="PlayfairDisplay-Regular.otf">
+            <string>PlayfairDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ClassQuote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GtB-Yg-xyn" userLabel="Quote Image">
+                                <rect key="frame" x="8" y="28" width="359" height="264"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GtB-Yg-xyn" secondAttribute="height" multiplier="359:264" id="3iE-CN-N2R"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4J-xU-TE8" userLabel="Quote Label">
+                                <rect key="frame" x="16" y="39" width="343" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="y4J-xU-TE8" secondAttribute="height" multiplier="343:242" id="6Nl-yo-b7w"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac risus pretium lorem sollicitudin placerat vitae sed enim. Aenean erat urna, varius sit amet aliquet at, efficitur in lorem. Aliquam eleifend ante in rhoncus imperdiet. Nullam dignissim et lectus non porta. Donec faucibus leo sed mattis pulvinar.</string>
+                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auteur" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ned-t9-EiC" userLabel="Author Label">
+                                <rect key="frame" x="8" y="312" width="359" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ned-t9-EiC" secondAttribute="height" multiplier="359:20" id="jmx-1p-Eo9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PlayfairDisplay-Regular" family="Playfair Display" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1a-BG-Mlt" userLabel="New Quote Button">
+                                <rect key="frame" x="8" y="580" width="359" height="61"/>
+                                <color key="backgroundColor" red="0.69517082249999995" green="0.3301332622" blue="0.21292223499999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="fBq-IM-Cm7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="20"/>
+                                <state key="normal" title="New Quote">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedNewQuoteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W6q-Pw-xfP"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3aZ-xe-eVF">
+                                <rect key="frame" x="169" y="592" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="Jcc-FN-A5j"/>
+                                    <constraint firstAttribute="height" constant="37" id="m8U-As-aZk"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e1a-BG-Mlt" secondAttribute="trailing" constant="8" id="16Q-a9-znJ"/>
+                            <constraint firstItem="ned-t9-EiC" firstAttribute="top" secondItem="GtB-Yg-xyn" secondAttribute="bottom" constant="20" id="CBx-kE-hOG"/>
+                            <constraint firstItem="GtB-Yg-xyn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="IXn-IY-5Pk"/>
+                            <constraint firstItem="y4J-xU-TE8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="Ifu-kE-605"/>
+                            <constraint firstItem="e1a-BG-Mlt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="750" constant="8" id="Iq7-4K-thM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e1a-BG-Mlt" secondAttribute="bottom" constant="26" id="Jhh-nB-mqv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ned-t9-EiC" secondAttribute="trailing" constant="8" id="KVg-wj-k9X"/>
+                            <constraint firstItem="3aZ-xe-eVF" firstAttribute="centerY" secondItem="e1a-BG-Mlt" secondAttribute="centerY" id="Ryc-U1-bKK"/>
+                            <constraint firstItem="ned-t9-EiC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="ScU-09-6ec"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GtB-Yg-xyn" secondAttribute="trailing" constant="8" id="U7f-4W-QHL"/>
+                            <constraint firstItem="GtB-Yg-xyn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="XLJ-CW-J8m"/>
+                            <constraint firstItem="y4J-xU-TE8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="d3f-Gi-0wz"/>
+                            <constraint firstItem="3aZ-xe-eVF" firstAttribute="centerX" secondItem="e1a-BG-Mlt" secondAttribute="centerX" id="dyg-Hj-tV5"/>
+                            <constraint firstItem="GtB-Yg-xyn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-367" id="fDX-fj-eOv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y4J-xU-TE8" secondAttribute="trailing" constant="16" id="yhG-h0-h9i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="3aZ-xe-eVF" id="VvK-Q7-Ux1"/>
+                        <outlet property="authorLabel" destination="ned-t9-EiC" id="RLo-Ga-HQD"/>
+                        <outlet property="imageView" destination="GtB-Yg-xyn" id="avm-qp-Sdl"/>
+                        <outlet property="newQuoteButton" destination="e1a-BG-Mlt" id="Hvk-iw-mx3"/>
+                        <outlet property="quoteLabel" destination="y4J-xU-TE8" id="ffY-nc-xyS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>
