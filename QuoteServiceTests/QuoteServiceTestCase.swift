@@ -10,21 +10,30 @@ import Foundation
 import XCTest
 @testable import ClassQuote
 
+/// Dans le fichier Quote.json, on récupère les données de test directement depuis l'API de forismatic
+/// - Pour le créer, on choisit un nouveau fichier "empty" qu'on nomme Quote.json
+
+
+
 class ClassQuoteTests: XCTestCase {
+    
     func testGetQuoteShouldPostFailedCallback() {
         // Given
+        /// crée une instance de QuoteService avec son initialiseur avec quoteSession et imageSession
         let quoteService = QuoteService(
+            /// met des instances de URLSessionFake. On met nil pour les 2 car on s'arrête tout de suite au cas d'erreur
             quoteSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error),
-            /// Puisque  qu'on sait que le téléchargement échoue => nil
+            /// puisque  qu'on sait que le téléchargement échoue => nil
             imageSession: URLSessionFake(data: nil, response: nil, error: nil))
 
         // When
-        /// On a un micro décalage car on n'est pas dans la meme queue donc on fait une expectation. Les expectation servent à attendre.
+        /// On a un micro décalage car on n'est pas dans la même queue donc on fait une expectation. Les expectation servent à attendre.
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         quoteService.getQuote { (success, quote) in
             // Then
             XCTAssertFalse(success)
             XCTAssertNil(quote)
+            /// l'expectation est terminé
             expectation.fulfill()
         }
         /// le micro délais 0.01 ne va pas ralentir nos tests.
@@ -179,6 +188,7 @@ class ClassQuoteTests: XCTestCase {
             XCTAssertTrue(success)
             XCTAssertNotNil(quote)
 
+            /// Ce sont les même données que dans le fichiers de Quote.json et imageData dans FakeResponseData
             let text = "Difficulties are things that show a person what they are.  "
             let author = "Epictetus "
             let imageData = "image".data(using: .utf8)!
