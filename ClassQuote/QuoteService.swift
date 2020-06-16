@@ -11,7 +11,7 @@ import Foundation
 class QuoteService {
     
     /// singleton pattern est une propriété statique de type QuoteService. On nomme shared l'instance unique, c'est elle qui va être partagée
-    /// - on protège la classe en rendant privé l'initialiseur par défaut. On ne peut plus écrire QuoteService() à l'extérieur de la classe
+    /// - on protège la classe en rendant innacessible et rendant privé l'initialiseur par défaut. On ne peut plus écrire QuoteService() à l'extérieur de la classe
     static var shared = QuoteService()
     private init() {}
 
@@ -35,6 +35,7 @@ class QuoteService {
     
     
     // MARK: - création de la requête
+    // création de la requête uniquement pour la citation car elle contient des paramètre et pas l'image
  
     private static func createQuoteRequest() -> URLRequest {
            /// create request
@@ -56,7 +57,7 @@ class QuoteService {
     
     func getQuote(callback: @escaping (Bool, Quote?) -> Void) {
         
-        /// créé request en utilisant la classe car ce sont des propriétés statiques
+        /// créé request en utilisant la classe car createQuoteRequest est une fonction statique :
         let request = QuoteService.createQuoteRequest()
         
         /// si j'ai déjà un appel en cour, je l'annule
@@ -86,13 +87,13 @@ class QuoteService {
                         return
                 }
                 /// récupérer l'image après la citation
-                /// comme on veut tout envoyer au controller il faut rassembler les données de la citation et de l'image => fermeture pour getImage
+                /// comme on veut tout envoyer an même temps au controller, il faut rassembler les données de la citation et de l'image au même endroit => fermeture pour getImage
                 self.getImage { (data) in
                     /// on veut renvoyer notre callback
                     if let data = data {
                         /// on construit l'objet quote
                         let quote = Quote(text: text, author: author, imageData: data)
-                        /// On envoie le callback true : la requête a russi
+                        /// On envoie le callback true : la requête a réussi
                         callback(true, quote)
                     } else {
                         callback(false, nil)
@@ -109,13 +110,13 @@ class QuoteService {
    // MARK: - get images
     
     /// on rajoute une fermeture à la fonction qui prend des data de manière optionnel et qui ne renvoie rien
-    
+     
     private func getImage(completionHandler: @escaping ((Data?) -> Void)) {
         
         /// si j'ai déjà un appel en cour, je l'annule
         task?.cancel()
         
-        /// autres forme de dataTask car c'est une requête GET et  il n'y a pas de paramètre à passer
+        /// autre forme de dataTask, on met juste l'url car  il n'y a pas de paramètre à passer. (on écrit QuoteService car pictureURL est une propriété statique) :
         task = imageSession.dataTask(with: QuoteService.pictureURL) { (data, response, error) in
             /// DispatchQueue.main.async : Tout s'effectue dans la queue principal :
             DispatchQueue.main.async {

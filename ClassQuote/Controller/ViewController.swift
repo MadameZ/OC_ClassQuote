@@ -27,6 +27,7 @@ class ViewController: UIViewController {
             self.toggleActivityIndicator(shown: false)
             
             if success, let quote = quote {
+                /// On affiche la citation
                 self.update(quote: quote)
             } else {
                self.presentAlert()
